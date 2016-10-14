@@ -1,0 +1,31 @@
+<md-card class="lane">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{lane.title}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <div ng-repeat="card in lane.cards">
+            <card data="card"></card>
+        </div>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="start center">
+        <div ng-if="!isFormVisible" flex ng-click="setFormVisibility(true)">
+            <label class="text-muted">Add Card..</label>
+        </div>
+        <md-card class="md-whiteframe-5dp" flex ng-if="isFormVisible">
+            <md-card-content>
+                <md-input-container class="md-block">
+                    <label>Card Title</label>
+                    <textarea ng-model="card.title" md-maxlength="150" maxlength="150" rows="3" md-select-on-focus></textarea>
+                </md-input-container>
+            </md-card-content>
+            <md-card-actions>
+                <md-button class="md-raised md-primary" ng-click="createCard()">Create</md-button>
+                <md-button class="md-icon-button" ng-click="setFormVisibility(false)">
+                    <md-icon ria-label="Close">close</md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </md-card-actions>
+</md-card>

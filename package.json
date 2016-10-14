@@ -1,0 +1,22 @@
+{
+  "name": "angular2-todo-es6",
+  "version": "1.0.0",
+  "description": "A Todo-List app built with angular2 using ES6",
+  "main": "index.js",
+  "author": "Nishant Desai",
+  "license": "ISC",
+  "scripts": {
+    "server": "node server/app"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.3",
+    "morgan": "^1.7.0",
+    "q": "^1.4.1",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,14 @@
+.fab-button {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+
+.lane {
+	width: 250px;
+	max-height: 600px;
+}
+
+.text-muted {
+	color: #bcbcbc;
+}
