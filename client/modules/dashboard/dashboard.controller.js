@@ -24,11 +24,11 @@ app.controller('DashboardController', ['$scope', 'LaneService', '$mdDialog', '$m
 
 				$mdToast.show(
 			      $mdToast.simple()
-			        .textContent('Lane '+createdLane.title+' created')
+			        .textContent('Lane \''+createdLane.title+'\' created')
 			        .hideDelay(3000)
 			    );
 
-			    $scope.lanes.push(createdLane);
+			    $scope.UIData.lanes.push(createdLane);
 			});
 	    });
 	}

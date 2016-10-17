@@ -8,39 +8,37 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-resource.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-animate.js"></script>
-  	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
-  	<!-- Angular Material Library -->
-  	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<!-- Angular Material Library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
-	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">	
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+	<!--dragula-->
+	<link rel="stylesheet" href="./node_modules/dragula/dist/dragula.css">
+	<script src="./node_modules/dragula/dist/dragula.js"></script>
+
+	<script type="text/javascript" src="./node_modules/angular-dragula/dist/angular-dragula.js"></script>
+	<link rel="stylesheet" href="./node_modules/angular-dragula/dist/dragula.css">
+
+
+	<!--custom styling-->
 	<link href="./modules/dashboard/dashboard.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<link href="./modules/card/card.css" rel="stylesheet">
+	<link href="./modules/lane/lane.css" rel="stylesheet">
+	<link href="./modules/toolbar/info/info.css" rel="stylesheet">
 </head>
 
 
 <body>
-    <div ng-app="myApp">
-    	<md-content>
-    		<md-toolbar ng-class="md-hue-2">
-    			<div class="md-toolbar-tools">
-    				<h2>
-    					<span>
-    						App Demo
-    					</span>
-    				</h2>
-	    			<span flex></span>
-	    			<md-button class="md-icon-button">
-	    				<md-icon aria-label="android"> info </md-icon>
-	    			</md-button>
-    			</div>
-    		</md-toolbar>
-        	<ng-view></ng-view>
-    		
-    	</md-content>
-    </div>
+	<md-content ng-app="myApp">
+		<tool-bar></tool-bar>
+		<ng-view></ng-view>
+	</md-content>
 </body>
 
 <script src="./app.js"></script>
@@ -48,6 +46,7 @@
 <script src="./modules/dashboard/dashboard.controller.js"></script>
 <script src="./modules/lane/lane.directive.js"></script>
 <script src="./modules/card/card.directive.js"></script>
+<script src="./modules/toolbar/toolbar.directive.js"></script>
 
 <script src="./services/lane.service.js"></script>
 <script src="./services/card.service.js"></script>

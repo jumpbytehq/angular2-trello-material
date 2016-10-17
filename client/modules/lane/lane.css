@@ -1,0 +1,16 @@
+.lane {}
+
+.card-list {
+	max-height: 500px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.new-card-title {
+	margin-bottom: 0;
+    margin-top: 12px;
+}
+
+.new-card-form {
+	padding: 10px 10px 0px 10px;
+}

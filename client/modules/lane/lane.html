@@ -1,23 +1,27 @@
-<md-card class="lane">
+<md-card flex class="lane">
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline">{{lane.title}}</span>
         </md-card-title-text>
     </md-card-title>
-    <md-card-content>
-        <div ng-repeat="card in lane.cards">
-            <card data="card"></card>
+    <md-card-content class="card-list">
+        <div 
+        id="{{lane._id}}" 
+        ng-class="{'height-50': !lane.cards.length}"
+        dragula="'lane'" 
+        >
+            <div id="{{card._id}}" ng-repeat="card in lane.cards" card data="card"></div>
         </div>
     </md-card-content>
-    <md-card-actions layout="row" layout-align="start center">
-        <div ng-if="!isFormVisible" flex ng-click="setFormVisibility(true)">
+    <md-card-actions felx layout-align="start center">
+        <div class="padding-10" ng-if="!isFormVisible" flex ng-click="setFormVisibility(true)">
             <label class="text-muted">Add Card..</label>
         </div>
-        <md-card class="md-whiteframe-5dp" flex ng-if="isFormVisible">
-            <md-card-content>
-                <md-input-container class="md-block">
+        <md-card class="md-whiteframe-5dp" ng-if="isFormVisible">
+            <md-card-content class="new-card-form">
+                <md-input-container class="md-block new-card-title">
                     <label>Card Title</label>
-                    <textarea ng-model="card.title" md-maxlength="150" maxlength="150" rows="3" md-select-on-focus></textarea>
+                    <textarea ng-model="card.title" md-maxlength="100" maxlength="100" rows="3" md-select-on-focus></textarea>
                 </md-input-container>
             </md-card-content>
             <md-card-actions>

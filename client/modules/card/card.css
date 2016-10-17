@@ -1,0 +1,11 @@
+.card {
+	background: #F6F6F6;	
+	padding: 15px;
+	margin-bottom: 5px;
+	word-wrap: break-word;
+}
+
+div.gu-transit {
+	opacity: 0.5;
+    margin: 15px;
+}
