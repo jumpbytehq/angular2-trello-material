@@ -8,7 +8,7 @@ app.factory('CardService', function($http) {
 
     serviceObj.transferCard = function(cardId, fromLane, toLane) {
         return $http.post(baseUrl + '/transfer-card', {
-            case: cardId,
+            card: cardId,
             fromLane: fromLane,
             toLane: toLane
         });

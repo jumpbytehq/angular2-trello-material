@@ -7,3 +7,7 @@
     background: #f6f6f6; 
     padding: 20px;
 }
+
+.no-background {
+    background: rgba(0,0,0, 0);
+}

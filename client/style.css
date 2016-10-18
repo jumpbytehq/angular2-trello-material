@@ -10,3 +10,16 @@
 .padding-10 {
     padding: 10px;
 } 
+
+a.text-decoration-none {
+	text-decoration: none;
+}
+
+.small-dialog {
+	max-width: 500px;
+}
+
+.vertical-margin-20 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

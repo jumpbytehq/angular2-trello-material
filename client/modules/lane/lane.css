@@ -1,5 +1,9 @@
 .lane {}
 
+.lane-body {
+	min-height: 50px;
+}
+
 .card-list {
 	max-height: 500px;
 	overflow-x: hidden;
@@ -14,3 +18,27 @@
 .new-card-form {
 	padding: 10px 10px 0px 10px;
 }
+
+div[dnd-list],
+div[dnd-list] > div {
+	position: relative;
+}
+
+div[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+.dndDraggingSource {
+    background: cadetblue;
+	max-width: 100px;
+}
+
+div[dnd-list] .dndPlaceholder {
+    display: block;
+    min-height: 42px;
+	background: #F6F6F6;	
+	padding: 10px;
+	margin: 0px 10px 15px 10px;
+	border-radius: 5px;
+}
+

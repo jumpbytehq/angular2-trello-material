@@ -17,13 +17,8 @@
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<!--dragula-->
-	<link rel="stylesheet" href="./node_modules/dragula/dist/dragula.css">
-	<script src="./node_modules/dragula/dist/dragula.js"></script>
-
-	<script type="text/javascript" src="./node_modules/angular-dragula/dist/angular-dragula.js"></script>
-	<link rel="stylesheet" href="./node_modules/angular-dragula/dist/dragula.css">
-
+	<!--dnd-->
+	<script src="./node_modules/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
 
 	<!--custom styling-->
 	<link href="./modules/dashboard/dashboard.css" rel="stylesheet">
@@ -35,7 +30,7 @@
 
 
 <body>
-	<md-content ng-app="myApp">
+	<md-content style="height: 100%" ng-app="myApp">
 		<tool-bar></tool-bar>
 		<ng-view></ng-view>
 	</md-content>

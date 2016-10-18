@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ["ngRoute", "ngMaterial", "ngResource", angularDragula(angular)]); 
+var app = angular.module("myApp", ["ngRoute", "ngMaterial", "ngResource", 'dndLists']); 
 
 app
 .config(function($routeProvider) {

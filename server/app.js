@@ -17,6 +17,7 @@ mongoose.connect('mongodb://localhost');
 
 app.use(express.static(appPath));
 app.use('/node_modules', express.static(path.normalize(appRoot+'/node_modules')));
+app.use('/assets', express.static(path.normalize(appRoot+'/assets')));
 
 app.set('appRoot', appRoot);
 app.set('appPath', appPath);
@@ -56,8 +57,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
 });
 
-server.listen(3000, function () {
-  console.log('server started');
+server.listen(5000, function () {
+  console.log('server started on port 5000');
   setTimeout(function() {
   	DBService.wipeDB();
   }, 3600000);

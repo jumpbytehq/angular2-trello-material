@@ -9,7 +9,7 @@
     "server": "node server/app"
   },
   "dependencies": {
-    "angular-dragula": "^1.2.8",
+    "angular-drag-and-drop-lists": "^1.4.0",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.2",

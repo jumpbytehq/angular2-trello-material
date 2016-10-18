@@ -1,10 +1,11 @@
 <md-content class="md-padding" layout=row>
-    <div flex layout="row">
-    	<div ng-repeat="lane in UIData.lanes">
-        	<lane data="lane"></lane>
-    	</div>
-    </div>
+	<div flex layout="row">
+		<div ng-repeat="lane in UIData.lanes">
+			<lane data="lane"></lane>
+		</div>
+	</div>
+
 </md-content>
 <md-button class="md-fab fab-button" ng-click="showAddLaneModal()" aria-label="Add Lane">
-    <md-icon aria-label="Add"> add </md-icon>
+	<md-icon aria-label="Add"> add </md-icon>
 </md-button>

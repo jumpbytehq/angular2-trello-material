@@ -1,8 +1,8 @@
 .card {
 	background: #F6F6F6;	
 	padding: 15px;
-	margin-bottom: 5px;
 	word-wrap: break-word;
+	margin: 0px 0px 15px 0px;
 }
 
 div.gu-transit {

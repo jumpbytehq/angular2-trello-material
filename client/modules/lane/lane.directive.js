@@ -1,14 +1,15 @@
-angular.module('myApp').directive('lane', function (CardService, $mdToast) {
+angular.module('myApp').directive('lane', function (CardService, $mdToast, $rootScope) {
     return {
-        restrict: 'E',
+        restrict: 'EA',
         scope: {
-            lane: '=data'         },
+            lane: '=data'
+        },
         templateUrl: './modules/lane/lane.html',
-        link: function ($scope, element, attrs) { 
+        link: function ($scope, element, attrs) {
             $scope.card;
             $scope.isFormVisible;
 
-            var resetForm = function() {
+            var resetForm = function () {
                 $scope.card = {
                     title: ''
                 };
@@ -16,68 +17,78 @@ angular.module('myApp').directive('lane', function (CardService, $mdToast) {
             }
             resetForm();
 
-            $scope.setFormVisibility = function(value) {
+            $scope.setFormVisibility = function (value) {
                 $scope.isFormVisible = value;
             }
 
-            $scope.createCard = function() {
+            $scope.createCard = function () {
                 CardService.createCard({
                     title: $scope.card.title,
                     lane: $scope.lane._id
                 })
-                .then(function(res) {
-                    $scope.lane.cards.push(res.data);
+                    .then(function (res) {
+                        $scope.lane.cards.push(res.data);
 
-                    $mdToast.show(
-                      $mdToast.simple()
-                        .textContent('Card \''+$scope.card.title+'\' added to lane \''+ $scope.lane.title+'\'')
-                        .position('bottom left')
-                        .hideDelay(200000)
-                    );
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('Card \'' + $scope.card.title + '\' added to lane \'' + $scope.lane.title + '\'')
+                                .position('bottom left')
+                                .hideDelay(2000)
+                        );
 
-                    resetForm();
-                })
+                        resetForm();
+                    })
             }
 
-            $scope.$on('lane.drag', function (e, el) {
-                console.log("inside lane.drag");
-                // el.removeClass('ex-moved');
-            });
-
-            $scope.$on('lane.drop', function (e, el) {
-                console.log("inside lane.drop");
-                // el.addClass('ex-moved');
-            });
-
-            $scope.$on('lane.over', function (e, el, container) {
-                console.log("inside lane.over");
-                // container.addClass('ex-over');
-            });
-
-            $scope.$on('lane.out', function (e, el, container) {
-                console.log("inside lane.out");
-                // container.removeClass('ex-over');
-            });
-
-            $scope.$on('lane.drop', function (e, el, container) {
-                console.log("inside lane.drop");
-                // container.removeClass('ex-over');
-            });
-
-            $scope.$on('lane.cancel', function (e, el, container) {
-                console.log("inside lane.cancel");
-                // container.removeClass('ex-over');
-            });
-
-            $scope.getStyle = function() {
-                var style = {};
-
-                if($scope.isFormVisible) {
-                    style.height = "240px";
+            var removeCard = function (cardObj) {
+                var i;
+                for (i = 0; i < $scope.lane.cards.length; i++) {
+                    if ($scope.lane.cards[i]._id === cardObj._id) {
+                        break;
+                    }
                 }
 
-                return style;
+                if (i < $scope.lane.cards.length) { //break was executed
+                    $scope.lane.cards.splice(i, 1);
+                }
             }
+
+            var addCard = function(index, cardObj) {
+                $scope.lane.cards.splice(index, 0, cardObj);
+            } 
+
+            $scope.dropCallback = function (event, index, cardObj, external, type, containerType) {
+
+                var isDroppedToSameLane = $scope.lane._id === cardObj.lane;
+
+                if (isDroppedToSameLane) {
+                    removeCard(cardObj);
+                }
+                else {
+                    CardService.transferCard(cardObj._id, cardObj.lane, $scope.lane._id).then(function () {
+                        $rootScope.$broadcast(cardObj.lane, {
+                            action: 'remove',
+                            card: cardObj
+                        });
+
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('Card \'' + cardObj.title + '\' transfered')
+                                .position('bottom left')
+                                .hideDelay(2000)
+                        );
+                    });
+                }
+
+                addCard(index, cardObj);
+                return true;
+            }
+
+            $rootScope.$on($scope.lane._id, function (event, data) {
+                if (data.action === 'remove') {
+                    removeCard(data.card);
+                }
+            });
         }
     }
 });

@@ -6,11 +6,19 @@
     </md-card-title>
     <md-card-content class="card-list">
         <div 
+        class="lane-body"
         id="{{lane._id}}" 
-        ng-class="{'height-50': !lane.cards.length}"
-        dragula="'lane'" 
+        dnd-list="lane.cards"
+        dnd-drop="dropCallback(event, index, item, external, type, 'containerType')"
         >
-            <div id="{{card._id}}" ng-repeat="card in lane.cards" card data="card"></div>
+            <div 
+            id="{{card._id}}" 
+            dnd-draggable="card" 
+            ng-repeat="card in lane.cards" 
+            dnd-moved="cardMoved($index)"
+            >
+                <card data="card"></card>
+            </div>
         </div>
     </md-card-content>
     <md-card-actions felx layout-align="start center">

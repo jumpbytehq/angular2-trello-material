@@ -1,23 +1,71 @@
-<md-dialog aria-label="Add Lane">
+<md-dialog class="small-dialog" aria-label="Add Lane">
 	<md-toolbar>
 		<div class="md-toolbar-tools">
 			<h2>Info</h2>
 		</div>
 	</md-toolbar>
+
 	<md-dialog-content class="info-dialog">
+		<h3>UI Dependencies</h3>
 		<md-card>
+			<md-card-header>
+				<md-card-avatar>
+					<a href="https://material.angularjs.org/latest/">
+						<img src="assets/images/angular-material.svg" />
+					</a>
+				</md-card-avatar>
+				<md-card-header-text>
+					<span class="md-title">
+						<a class="text-decoration-none" href="https://material.angularjs.org/latest/">
+							Angular Material
+						</a>
+					</span>
+					<span class="md-subhead">CSS Framework</span>
+				</md-card-header-text>
+			</md-card-header>
 			<md-card-content>
-				<h2>UI Dependecies</h2>
-				<div class="list-group">
-					<a target="_blank" href="https://github.com/valor-software/ng2-bootstrap" class="list-group-item">ng2-bootstrap</a>
-					<a target="_blank" href="https://github.com/valor-software/ng2-dragula" class="list-group-item">ng2-dragula</a>
-				</div>
+				<p>Angular Material is a UI component library for Angular JS. Angular Material components helps in constructing attractive
+					and responsive web pages and web apps.</p>
 			</md-card-content>
 		</md-card>
 
-		<md-card class="alert-card">
+		<md-card>
+			<md-card-header>
+				<md-card-avatar>
+					<a href="https://github.com/marceljuenemann/angular-drag-and-drop-lists">
+						<img src="assets/images/github.png" />
+					</a>
+				</md-card-avatar>
+				<md-card-header-text>
+					<span class="md-title">
+						<a class="text-decoration-none" href="https://github.com/marceljuenemann/angular-drag-and-drop-lists">
+							Angular Drag and Drop Lists
+						</a>
+					</span>
+					<span class="md-subhead">Drag and Drop Library for AngularJS</span>
+				</md-card-header-text>
+			</md-card-header>
 			<md-card-content>
-				<h2>Alert</h2>
+				<p>Angular Drag and Drop Lists provide a bunch of Angular directives that allow you to build sortable lists with the native
+					HTML5 drag & drop API.</p>
+			</md-card-content>
+		</md-card>
+
+		<div class="vertical-margin-20">
+			<md-divider></md-divider>
+		</div>
+
+
+		<md-card class="alert-card">
+			<md-card-header>
+				<md-card-avatar>
+					<md-icon aria-label="android" class="no-background"> warning </md-icon>
+				</md-card-avatar>
+				<md-card-header-text>
+					<h3 class="md-title"><strong>Alert</strong></h3>
+				</md-card-header-text>
+			</md-card-header>
+			<md-card-content>
 				<p>This App has <strong>no Login</strong> so all the data will be <strong>erased in 1 hour.</strong>.</p>
 			</md-card-content>
 		</md-card>

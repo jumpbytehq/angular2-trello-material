@@ -36,10 +36,8 @@ exports.transferCard = function(req, res ,next) {
 		return res.json({status: true});
 	}
 	
-	console.log(cardId);
 	cardModel.findCard(cardId).then(function(card) {
 		card.lane = toLane;
-		console.log('found', card);
 		card.save(function(err) {
 			if(err) {
 				console.log(err);
