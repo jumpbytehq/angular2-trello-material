@@ -1,4 +1,4 @@
-# angular2-trello
+# AngularJS-trello
 A simple demo app like Trello using Angular Material
 
 ## Setup
